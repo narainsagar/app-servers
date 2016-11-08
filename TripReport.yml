@@ -7,38 +7,37 @@ properties:
 ---
 spring:
   profiles: environments
-Performance:
-  PERF-CoreApp:
+Staging:
+  STG-TripReportWeb:
     status: 1
     serverType: Web
     properties:
-      VersionLabel: PERFCoreAppVersion
-      TemplateName: PERFCoreAppTemplate
-      CNAMEPrefix: PERF-CoreApp
-Staging:
-  STG-CoreApp:
+      VersionLabel: STGTripReportWebVersion
+      TemplateName: STGTripReportWebTemplate
+      CNAMEPrefix: STG-TripReportWeb
+  STG-TripReportWorker:
     status: 0
-    serverType: Web
+    serverType: Worker
     properties:
-      VersionLabel: STGCoreAppVersion
-      TemplateName: STGCoreAppTemplate
-      CNAMEPrefix: STG-CoreApp
+      VersionLabel: STGTripReportWorkerVersion
+      TemplateName: STGTripReportWorkerTemplate
+      CNAMEPrefix: STG-TripReportWorker
 ---
 spring:
   profiles: versions
-Performance:
-  PERFCoreAppVersion:
+Staging:
+  STGTripReportWebVersion:
     properties:
-      Description: AWS ElasticBeanstalk Staging PERF-CoreApp Version
+      Description: AWS ElasticBeanstalk Staging STG-TripReportWeb Version
       SourceBundle: 
         S3Key: coreapp
 ---
 spring:
   profiles: configurationTemplate
-Performance:
-  PERFCoreAppTemplate:
+Staging:
+  STGTripReportWebTemplate:
     properties:
-      Description: AWS ElasticBeanstalk PERF-CoreApp Configuration Template
+      Description: AWS ElasticBeanstalk STG-TripReportWeb Configuration Template
       SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
       NumberOfOptionSettings: 34
       OptionSettings:

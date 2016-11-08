@@ -34,7 +34,7 @@ applications:
 spring: 
   profiles: Servers
 servers:
-  total: 
+  total: 25
   names:
     - STG-ADMAPing
       - ADMA-Ping
