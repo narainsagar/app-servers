@@ -33,6 +33,38 @@ applications:
 ---
 spring: 
   profiles: Servers
+servers:
+  total: 
+  names:
+    - STG-ADMAPing
+      - ADMA-Ping
+    - STG-CaptainAssignerService
+    - STG-CaptainDisputeServiceWeb
+    - STG-CaptainDisputeServiceWorker
+    - STG-CaptainCommentsWorker
+    - STG-CoreApp
+    - STG-WebApp
+    - STG-WebPublic
+    - STG-SupplyService
+    - STG-LoyaltyService
+    - STG-DispatchHandlerService
+    - STG-GeoSpatialService
+    - STG-ConsumerEdgeService
+    - STG-EventProcessor
+    - STG-Fawry
+    - STG-LocationsService
+    - STG-LocationsPOIService
+    - STG-AuthenticationService
+    - STG-PromotionsService
+    - STG-Solutions
+    - STG-TripReportWeb
+    - STG-TripReportWorker
+    - STG-RecentLocation
+    - STG-PingService
+    - STG-PushyService
+---
+spring: 
+  profiles: Relations
 apps:
   ADMA-Ping:
     total: 1
