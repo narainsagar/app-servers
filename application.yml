@@ -1,0 +1,106 @@
+configuration:
+  projectName: master-service
+server:  
+  port: 8000
+access:
+  aws:
+    key: 123
+    secret: 123
+---
+spring:
+  profiles: configurationTemplate
+---
+spring:
+  profiles: Apps
+applications:
+  total: 15
+  names:
+    - ADMA-Ping
+    - CaptainAssginer
+    - CaptainDisputeService
+    - Careem-Prod-BackEnd
+    - Careem-Prod-FrontEnd
+    - DispatchHandler
+    - Edge Services
+    - EventProcessor
+    - Fawry
+    - Locations
+    - Microservices
+    - Promotions
+    - Solutions
+    - TripReport
+    - Workers
+---
+spring: 
+  profiles: Servers
+apps:
+  ADMA-Ping:
+    total: 1
+    servers:
+      - STG-ADMAPing
+  CaptainAssginer:
+    total: 1
+    servers:
+      - STG-CaptainAssignerService
+  CaptainDisputeService:
+    total: 3
+    servers:
+      - STG-CaptainDisputeServiceWeb
+      - STG-CaptainDisputeServiceWorker
+      - STG-CaptainCommentsWorker
+  Careem-Prod-BackEnd:
+    total: 1
+    servers:
+      - STG-CoreApp
+  Careem-Prod-FrontEnd:
+    total: 2
+    servers:
+      - STG-WebApp
+      - STG-WebPublic
+  DispatchHandler:
+    total: 4
+    servers:
+      - STG-SupplyService
+      - STG-LoyaltyService
+      - STG-DispatchHandlerService
+      - STG-GeoSpatialService
+  Edge Services:
+    total: 1
+    servers:
+      - STG-ConsumerEdgeService
+  EventProcessor:
+    total: 1
+    servers:
+      - STG-EventProcessor
+  Fawry:
+    total: 1
+    servers:
+      - STG-Fawry
+  Locations:
+    total: 2
+    servers:
+      - STG-LocationsService
+      - STG-LocationsPOIService
+  Microservices:
+    total: 1
+    servers:
+      - STG-AuthenticationService
+  Promotions:
+    total: 1
+    servers:
+      - STG-PromotionsService
+  Solutions:
+    total: 1
+    servers:
+      - STG-Solutions
+  TripReport:
+    total: 2
+    servers:
+      - STG-TripReportWeb
+      - STG-TripReportWorker
+  Workers:
+    total: 3
+    servers:
+      - STG-RecentLocation
+      - STG-PingService
+      - STG-PushyService
