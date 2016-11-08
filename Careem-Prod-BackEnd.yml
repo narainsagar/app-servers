@@ -32,6 +32,12 @@ Performance:
       Description: AWS ElasticBeanstalk Staging PERF-CoreApp Version
       SourceBundle: 
         S3Key: coreapp
+Staging:
+  STGCoreAppVersion:
+    properties:
+      Description: AWS ElasticBeanstalk Staging STG-CoreApp Version
+      SourceBundle: 
+        S3Key: coreapp
 ---
 spring:
   profiles: configurationTemplate
@@ -147,3 +153,13 @@ Performance:
           - CrossZone
           - AWSEBCloudWatchLogs8832c8d3f1a54c238a40e36f31ef55a0WebRequestLogGroup
           - EnvironmentVariables
+Staging:
+  STGCoreAppTemplate:
+    properties:
+      Description: AWS ElasticBeanstalk STG-CoreApp Configuration Template
+      SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
+      NumberOfOptionSettings: 34
+      OptionSettings:
+        Value:
+        Namespace:
+        OptionName: 

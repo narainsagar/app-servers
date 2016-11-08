@@ -1,5 +1,5 @@
 configuration:  
-  projectName: Careem-Prod-BackEnd
+  projectName: Careem-Prod-FrontEnd
 server:  
   port: 8080
 properties:
@@ -7,38 +7,42 @@ properties:
 ---
 spring:
   profiles: environments
-Performance:
-  PERF-CoreApp:
-    status: 1
-    serverType: Web
-    properties:
-      VersionLabel: PERFCoreAppVersion
-      TemplateName: PERFCoreAppTemplate
-      CNAMEPrefix: PERF-CoreApp
 Staging:
-  STG-CoreApp:
+  STG-WebApp:
     status: 0
     serverType: Web
     properties:
       VersionLabel: STGCoreAppVersion
       TemplateName: STGCoreAppTemplate
       CNAMEPrefix: STG-CoreApp
+  STG-WebPublic:
+    status: 0
+    serverType: Web
+    properties:
+      VersionLabel: STGWebPublicVersion
+      TemplateName: STGWebPublicTemplate
+      CNAMEPrefix: STG-WebPublic
 ---
 spring:
   profiles: versions
-Performance:
-  PERFCoreAppVersion:
+Staging:
+  STGWebPublicVersion:
     properties:
-      Description: AWS ElasticBeanstalk Staging PERF-CoreApp Version
+      Description: AWS ElasticBeanstalk Staging STG-WebApp Version
+      SourceBundle: 
+        S3Key: coreapp
+  STGWebPublicVersion:
+    properties:
+      Description: AWS ElasticBeanstalk Staging STG-WebPublic Version
       SourceBundle: 
         S3Key: coreapp
 ---
 spring:
   profiles: configurationTemplate
-Performance:
-  PERFCoreAppTemplate:
+Staging:
+  STGWebAppTemplate:
     properties:
-      Description: AWS ElasticBeanstalk PERF-CoreApp Configuration Template
+      Description: AWS ElasticBeanstalk STG-WebApp Configuration Template
       SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
       NumberOfOptionSettings: 34
       OptionSettings:
@@ -147,3 +151,12 @@ Performance:
           - CrossZone
           - AWSEBCloudWatchLogs8832c8d3f1a54c238a40e36f31ef55a0WebRequestLogGroup
           - EnvironmentVariables
+  STGWebPublicTemplate:
+    properties:
+      Description: AWS ElasticBeanstalk STG-WebPublic Configuration Template
+      SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
+      NumberOfOptionSettings: 34
+      OptionSettings:
+        Value: 
+        Namespace: 
+        OptionName: 

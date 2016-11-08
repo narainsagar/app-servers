@@ -7,10 +7,9 @@ properties:
 ---
 spring:
   profiles: environments
-Performance:
 Staging:
   STG-ADMAPing:
-    status: 0
+    status: 1
     serverType: Web
     properties:
       VersionLabel: STGADMAPingVersion
@@ -19,7 +18,6 @@ Staging:
 ---
 spring:
   profiles: versions
-Performance:
 Staging:
   STGADMAPingVersion:
     properties:
@@ -29,10 +27,10 @@ Staging:
 ---
 spring:
   profiles: configurationTemplate
-Performance:
-  PERFCoreAppTemplate:
+Staging:
+  STGADMAPingTemplate:
     properties:
-      Description: AWS ElasticBeanstalk PERF-CoreApp Configuration Template
+      Description: AWS ElasticBeanstalk STG-ADMAPing Configuration Template
       SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
       NumberOfOptionSettings: 34
       OptionSettings:

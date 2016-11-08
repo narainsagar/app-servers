@@ -1,5 +1,5 @@
 configuration:  
-  projectName: Careem-Prod-BackEnd
+  projectName: Fawry
 server:  
   port: 8080
 properties:
@@ -7,38 +7,30 @@ properties:
 ---
 spring:
   profiles: environments
-Performance:
-  PERF-CoreApp:
-    status: 1
-    serverType: Web
-    properties:
-      VersionLabel: PERFCoreAppVersion
-      TemplateName: PERFCoreAppTemplate
-      CNAMEPrefix: PERF-CoreApp
 Staging:
-  STG-CoreApp:
+  STG-Fawry:
     status: 0
     serverType: Web
     properties:
-      VersionLabel: STGCoreAppVersion
-      TemplateName: STGCoreAppTemplate
-      CNAMEPrefix: STG-CoreApp
+      VersionLabel: STGFawryVersion
+      TemplateName: STGFawryTemplate
+      CNAMEPrefix: STG-Fawry
 ---
 spring:
   profiles: versions
-Performance:
-  PERFCoreAppVersion:
+Staging:
+  STGFawryVersion:
     properties:
-      Description: AWS ElasticBeanstalk Staging PERF-CoreApp Version
+      Description: AWS ElasticBeanstalk Staging STG-Fawry Version
       SourceBundle: 
         S3Key: coreapp
 ---
 spring:
   profiles: configurationTemplate
-Performance:
-  PERFCoreAppTemplate:
+Staging:
+  STGFawryTemplate:
     properties:
-      Description: AWS ElasticBeanstalk PERF-CoreApp Configuration Template
+      Description: AWS ElasticBeanstalk STG-Fawry Configuration Template
       SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
       NumberOfOptionSettings: 34
       OptionSettings:

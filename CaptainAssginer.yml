@@ -1,5 +1,5 @@
 configuration:  
-  projectName: Careem-Prod-BackEnd
+  projectName: CaptainAssginer
 server:  
   port: 8080
 properties:
@@ -7,38 +7,30 @@ properties:
 ---
 spring:
   profiles: environments
-Performance:
-  PERF-CoreApp:
+Staging:
+  STG-CaptainAssignerService:
     status: 1
     serverType: Web
     properties:
-      VersionLabel: PERFCoreAppVersion
-      TemplateName: PERFCoreAppTemplate
-      CNAMEPrefix: PERF-CoreApp
-Staging:
-  STG-CoreApp:
-    status: 0
-    serverType: Web
-    properties:
-      VersionLabel: STGCoreAppVersion
-      TemplateName: STGCoreAppTemplate
-      CNAMEPrefix: STG-CoreApp
+      VersionLabel: STGCaptainAssignerServiceVersion
+      TemplateName: STGCaptainAssignerServiceTemplate
+      CNAMEPrefix: STG-CaptainAssignerService
 ---
 spring:
   profiles: versions
-Performance:
-  PERFCoreAppVersion:
+Staging:
+  STGCaptainAssignerServiceVersion:
     properties:
-      Description: AWS ElasticBeanstalk Staging PERF-CoreApp Version
+      Description: AWS ElasticBeanstalk STG-CaptainAssignerService Version
       SourceBundle: 
         S3Key: coreapp
 ---
 spring:
   profiles: configurationTemplate
-Performance:
-  PERFCoreAppTemplate:
+Staging:
+  STGCaptainAssignerServiceTemplate:
     properties:
-      Description: AWS ElasticBeanstalk PERF-CoreApp Configuration Template
+      Description: AWS ElasticBeanstalk STG-CaptainAssignerService Configuration Template
       SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
       NumberOfOptionSettings: 34
       OptionSettings:

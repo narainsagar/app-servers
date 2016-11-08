@@ -1,5 +1,5 @@
 configuration:  
-  projectName: Careem-Prod-BackEnd
+  projectName: Locations
 server:  
   port: 8080
 properties:
@@ -7,38 +7,42 @@ properties:
 ---
 spring:
   profiles: environments
-Performance:
-  PERF-CoreApp:
-    status: 1
-    serverType: Web
-    properties:
-      VersionLabel: PERFCoreAppVersion
-      TemplateName: PERFCoreAppTemplate
-      CNAMEPrefix: PERF-CoreApp
 Staging:
-  STG-CoreApp:
+  STG-LocationsService:
     status: 0
     serverType: Web
     properties:
-      VersionLabel: STGCoreAppVersion
-      TemplateName: STGCoreAppTemplate
-      CNAMEPrefix: STG-CoreApp
+      VersionLabel: STGLocationsServiceVersion
+      TemplateName: STGLocationsServiceTemplate
+      CNAMEPrefix: STG-LocationsService
+  STG-LocationsPOIService:
+    status: 0
+    serverType: Web
+    properties:
+      VersionLabel: STGLocationsPOIServiceVersion
+      TemplateName: STGLocationsPOIServiceTemplate
+      CNAMEPrefix: STG-LocationsPOIService
 ---
 spring:
   profiles: versions
-Performance:
-  PERFCoreAppVersion:
+Staging:
+  STGLocationsServiceVersion:
     properties:
-      Description: AWS ElasticBeanstalk Staging PERF-CoreApp Version
+      Description: AWS ElasticBeanstalk Staging STG-LocationsService Version
+      SourceBundle: 
+        S3Key: coreapp
+  STGLocationsPOIServiceVersion:
+    properties:
+      Description: AWS ElasticBeanstalk Staging STG-LocationsPOIService Version
       SourceBundle: 
         S3Key: coreapp
 ---
 spring:
   profiles: configurationTemplate
-Performance:
-  PERFCoreAppTemplate:
+Staging:
+  STGLocationsServiceTemplate:
     properties:
-      Description: AWS ElasticBeanstalk PERF-CoreApp Configuration Template
+      Description: AWS ElasticBeanstalk STG-LocationsService Configuration Template
       SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
       NumberOfOptionSettings: 34
       OptionSettings:
@@ -147,3 +151,12 @@ Performance:
           - CrossZone
           - AWSEBCloudWatchLogs8832c8d3f1a54c238a40e36f31ef55a0WebRequestLogGroup
           - EnvironmentVariables
+  STGLocationsPOIServiceTemplate:
+    properties:
+      Description: AWS ElasticBeanstalk STG-LocationsPOIService Configuration Template
+      SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
+      NumberOfOptionSettings: 34
+      OptionSettings:
+        Value:
+        Namespace:
+        OptionName: 

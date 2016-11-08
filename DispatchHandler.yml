@@ -7,38 +7,66 @@ properties:
 ---
 spring:
   profiles: environments
-Performance:
-  PERF-CoreApp:
-    status: 1
-    serverType: Web
-    properties:
-      VersionLabel: PERFCoreAppVersion
-      TemplateName: PERFCoreAppTemplate
-      CNAMEPrefix: PERF-CoreApp
 Staging:
-  STG-CoreApp:
+  STG-SupplyService:
     status: 0
     serverType: Web
     properties:
-      VersionLabel: STGCoreAppVersion
-      TemplateName: STGCoreAppTemplate
-      CNAMEPrefix: STG-CoreApp
+      VersionLabel: STGSupplyServiceVersion
+      TemplateName: STGSupplyServiceTemplate
+      CNAMEPrefix: STG-SupplyService
+  STG-LoyaltyService:
+    status: 0
+    serverType: Web
+    properties:
+      VersionLabel: STGLoyaltyServiceVersion
+      TemplateName: STGLoyaltyServiceTemplate
+      CNAMEPrefix: STG-LoyaltyService
+  STG-DispatchHandlerService:
+    status: 0
+    serverType: Web
+    properties:
+      VersionLabel: STGDispatchHandlerServiceVersion
+      TemplateName: STGDispatchHandlerServiceTemplate
+      CNAMEPrefix: STG-DispatchHandlerService
+  STG-GeoSpatialService:
+    status: 0
+    serverType: Web
+    properties:
+      VersionLabel: STGGeoSpatialServiceVersion
+      TemplateName: STG-GeoSpatialServiceTemplate
+      CNAMEPrefix: STG-GeoSpatialService
 ---
 spring:
   profiles: versions
-Performance:
-  PERFCoreAppVersion:
+Staging:
+  STGSupplyServiceVersion:
     properties:
-      Description: AWS ElasticBeanstalk Staging PERF-CoreApp Version
+      Description: AWS ElasticBeanstalk Staging STG-SupplyService Version
+      SourceBundle: 
+        S3Key: coreapp
+  STGLoyaltyServiceVersion:
+    properties:
+      Description: AWS ElasticBeanstalk Staging STG-LoyaltyService Version
+      SourceBundle: 
+        S3Key: coreapp
+  STGDispatchHandlerServiceVersion:
+    properties:
+      Description: AWS ElasticBeanstalk Staging STG-DispatchHandlerService Version
+      SourceBundle: 
+        S3Key: coreapp
+  STGGeoSpatialServiceVersion:
+    properties:
+      Description: AWS ElasticBeanstalk Staging STG-GeoSpatialService Version
       SourceBundle: 
         S3Key: coreapp
 ---
 spring:
   profiles: configurationTemplate
-Performance:
-  PERFCoreAppTemplate:
+Staging:
+  STGSupplyServiceTemplate:
     properties:
-      Description: AWS ElasticBeanstalk PERF-CoreApp Configuration Template
+      Description: AWS ElasticBeanstalk STG-SupplyService Configuration Template
       SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
       NumberOfOptionSettings: 34
       OptionSettings:
@@ -147,3 +175,30 @@ Performance:
           - CrossZone
           - AWSEBCloudWatchLogs8832c8d3f1a54c238a40e36f31ef55a0WebRequestLogGroup
           - EnvironmentVariables
+  STGLoyaltyServiceTemplate:
+    properties:
+      Description: AWS ElasticBeanstalk STG-LoyaltyService Configuration Template
+      SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
+      NumberOfOptionSettings: 34
+      OptionSettings:
+        Value:
+        Namespace:
+        OptionName: 
+  STGDispatchHandlerServiceTemplate:
+    properties:
+      Description: AWS ElasticBeanstalk STG-DispatchHandlerService Configuration Template
+      SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
+      NumberOfOptionSettings: 34
+      OptionSettings:
+        Value:
+        Namespace:
+        OptionName: 
+  STGGeoSpatialServiceTemplate:
+    properties:
+      Description: AWS ElasticBeanstalk STG-GeoSpatialService Configuration Template
+      SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
+      NumberOfOptionSettings: 34
+      OptionSettings:
+        Value:
+        Namespace:
+        OptionName: 
