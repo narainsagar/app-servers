@@ -9,8 +9,8 @@ spring:
   profiles: environments
 Staging:
   STG-CaptainAssignerService:
-    status: 1
-    serverType: Web
+    status: 0
+    serverType: Worker
     properties:
       VersionLabel: STGCaptainAssignerServiceVersion
       TemplateName: STGCaptainAssignerServiceTemplate
