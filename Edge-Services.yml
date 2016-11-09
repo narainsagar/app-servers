@@ -1,5 +1,5 @@
 configuration:  
-  projectName: Edge Services
+  projectName: Edge-Services
 server:  
   port: 8080
 properties:

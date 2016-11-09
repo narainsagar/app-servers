@@ -21,7 +21,7 @@ applications:
     - Careem-Prod-BackEnd
     - Careem-Prod-FrontEnd
     - DispatchHandler
-    - Edge Services
+    - Edge-Services
     - EventProcessor
     - Fawry
     - Locations
