@@ -9,7 +9,7 @@ spring:
   profiles: environments
 Performance:
   PERF-CoreApp:
-    status: 1
+    status: 0
     serverType: Web
     properties:
       VersionLabel: PERFCoreAppVersion
@@ -17,7 +17,7 @@ Performance:
       CNAMEPrefix: PERF-CoreApp
 Staging:
   STG-CoreApp:
-    status: 0
+    status: 1
     serverType: Web
     properties:
       VersionLabel: STGCoreAppVersion
@@ -158,8 +158,92 @@ Staging:
     properties:
       Description: AWS ElasticBeanstalk STG-CoreApp Configuration Template
       SolutionStackName: 64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8
-      NumberOfOptionSettings: 34
+      NumberOfOptionSettings: 28
       OptionSettings:
         Value:
+          - 2
+          - Careem-Servers
+          - aws-elasticbeanstalk-ec2-role
+          - m3.medium
+          - sg-c6d941a3,sg-16ad6271
+          - 1
+          - 80
+          - CPUUtilization
+          - 1
+          - Percent
+          - 85
+          - XX|MaxPermSize=1024m,Xmx=3072m,JVM_#_Options=-Djdk.xml.entityExpansionLimit=0,Xms=512m
+          - false
+          - subnet-73e38805
+          - subnet-73e38805
+          - vpc-b032acd4
+          - 1
+          - arn|aws|acm|eu-west-1|848569320300|certificate/7f7a5da9-07cc-4d77-94e8-93503482ba31
+          - true
+          - zeeshan.habib@careem.com
+          - 50
+          - io1
+          - 200
+          - public
+          - Fixed
+          - true
+          - Dev
+          - ENVVAR
         Namespace:
+          - aws|autoscaling|asg
+          - aws|autoscaling|launchconfiguration
+          - aws|autoscaling|launchconfiguration
+          - aws|autoscaling|launchconfiguration
+          - aws|autoscaling|launchconfiguration
+          - aws|autoscaling|trigger
+          - aws|autoscaling|trigger
+          - aws|autoscaling|trigger
+          - aws|autoscaling|trigger
+          - aws|autoscaling|trigger
+          - aws|autoscaling|trigger
+          - aws|cloudformation|template|parameter
+          - aws|ec2|vpc
+          - aws|ec2|vpc
+          - aws|ec2|vpc
+          - aws|ec2|vpc
+          - aws|elasticbeanstalk|command
+          - aws|elb|loadbalancer
+          - aws|elb|policies
+          - aws|elasticbeanstalk|sns|topics
+          - aws|autoscaling|launchconfiguration
+          - aws|autoscaling|launchconfiguration
+          - aws|autoscaling|launchconfiguration
+          - aws|ec2|vpc
+          - aws|elasticbeanstalk|command
+          - aws|elb|loadbalancer
+          - aws|elasticbeanstalk|application|environment
+          - aws|cloudformation|template|parameter
         OptionName: 
+          - MaxSize
+          - EC2KeyName
+          - IamInstanceProfile
+          - InstanceType
+          - SecurityGroups
+          - BreachDuration
+          - LowerThreshold
+          - MeasureName
+          - Period
+          - Unit
+          - UpperThreshold
+          - JVMOptions
+          - AssociatePublicIpAddress
+          - ELBSubnets
+          - Subnets
+          - VPCId
+          - BatchSize
+          - SSLCertificateId
+          - ConnectionDrainingEnabled
+          - Notification Endpoint
+          - RootVolumeSize
+          - RootVolumeType
+          - RootVolumeIOPS
+          - ELBScheme
+          - BatchSizeType
+          - CrossZone
+          - AWSEBCloudWatchLogs8832c8d3f1a54c238a40e36f31ef55a0WebRequestLogGroup
+          - EnvironmentVariables

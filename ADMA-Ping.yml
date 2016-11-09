@@ -13,7 +13,7 @@ Staging:
     serverType: Web
     properties:
       VersionLabel: STGADMAPingVersion
-      TemplateName: STG-ADMAPingTemplate
+      TemplateName: STGADMAPingTemplate
       CNAMEPrefix: STG-ADMAPing
 ---
 spring:
@@ -23,7 +23,7 @@ Staging:
     properties:
       Description: AWS ElasticBeanstalk Staging ADMA-Ping Version
       SourceBundle: 
-        S3Key: coreapp
+        S3Key: admaping
 ---
 spring:
   profiles: configurationTemplate
