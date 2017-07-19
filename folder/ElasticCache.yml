@@ -1,0 +1,29 @@
+configuration:
+  projectName: ElasticCache
+server:
+  port: 8080
+---
+spring:
+  profiles: Automation
+cacheInfo:
+  total: 2
+  names:
+    - memcache-careem-auto
+    - redis-careem-auto
+resources:
+  memcache-careem-auto:
+    CacheNodeType: cache.t2.micro
+    CacheParameterGroupName: default.memcached1.4
+    CacheSubnetGroupName: cache-subnet-group
+    Engine: memcached
+    EngineVersion: 1.4.24
+    NumCacheNodes: 1
+    VpcSecurityGroupIds: sg-123
+  redis-careem-auto:
+    CacheNodeType: cache.t2.micro
+    CacheParameterGroupName: default.redis2.8
+    CacheSubnetGroupName: cache-subnet-group
+    Engine: Redis
+    EngineVersion: 2.8.24
+    NumCacheNodes: 1
+    VpcSecurityGroupIds: sg-456
