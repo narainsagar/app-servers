@@ -1,0 +1,199 @@
+configuration:  
+  projectName: Core-Service-App
+server:  
+  port: 8080
+---
+spring:
+  profiles: environments
+prod:
+  Prod-Core-Service-App:
+    applicationName: Careem-Prod-BackEnd
+    serverType: Web
+    tags:
+      - tag:
+          key: "careem:environment"
+          value: "Production"
+      - tag:
+          key: "careem:criticality"
+          value: "Amber"
+      - tag:
+          key: "careem:tier"
+          value: "microservice"
+      - tag:
+          key: "careem:domain"
+          value: "customer-exp"
+      - tag:
+          key: "careem:business-function"
+          value: "Core APP"
+      - tag:
+          key: "careem:cost-center"
+          value: "core"
+      - tag:
+          key: "careem:description"
+          value: "The server handling the communications with APP"
+      - tag:
+          key: "careem:persistence"
+          value: "database / redis / memcache / dynamo / elasticsearch"
+      - tag:
+          key: "careem:subdomain"
+          value: "all"
+---
+spring:
+  profiles: versions
+prod:
+  Prod-Core-Service-App:
+    properties:
+      SourceBundle: 
+        S3Key: coreapp
+---
+spring:
+  profiles: configurationTemplate
+prod:
+  Prod-Core-Service-App:
+    properties:
+      SolutionStackName: 64bit Amazon Linux 2016.09 v2.5.5 running Tomcat 8 Java 8
+      OptionSettings:
+        - configuration:
+            Namespace: aws:autoscaling:asg
+            Value: 40
+            OptionName: MaxSize
+        - configuration:
+            Namespace: aws:autoscaling:asg
+            Value: 15
+            OptionName: MinSize
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: 3
+            OptionName: BreachDuration
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: 3
+            OptionName: EvaluationPeriods
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: 35
+            OptionName: LowerThreshold
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: 45
+            OptionName: UpperThreshold
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: CPUUtilization
+            OptionName: MeasureName
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: 1
+            OptionName: Period
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: Average
+            OptionName: Statistic
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: Percent
+            OptionName: Unit
+        - configuration:
+            Namespace: aws:autoscaling:trigger
+            Value: 1
+            OptionName: UpperBreachScaleIncrement
+        - configuration:
+            Namespace: aws:autoscaling:launchconfiguration
+            Value: c4.2xlarge
+            OptionName: InstanceType
+        - configuration:
+            Namespace: aws:autoscaling:launchconfiguration
+            Value: Careem-3
+            OptionName: key
+        - configuration:
+            Namespace: aws:autoscaling:launchconfiguration
+            Value: role
+            OptionName: IamInstanceProfile
+        - configuration:
+            Namespace: aws:autoscaling:launchconfiguration
+            Value: 5 minute
+            OptionName: MonitoringInterval
+        - configuration:
+            Namespace: aws:autoscaling:launchconfiguration
+            Value: 600
+            OptionName: RootVolumeSize
+        - configuration:
+            Namespace: aws:autoscaling:launchconfiguration
+            Value: gp2
+            OptionName: RootVolumeType
+        - configuration:
+            Namespace: aws:autoscaling:launchconfiguration
+            Value: sg
+            OptionName: SecurityGroups
+        - configuration:
+            Namespace: aws:autoscaling:updatepolicy:rollingupdate
+            Value: false
+            OptionName: RollingUpdateEnabled
+        - configuration:
+            Value: 80
+            Namespace: aws:cloudformation:template:parameter
+            OptionName: InstancePort
+        - configuration:
+            Value: public
+            Namespace: aws:ec2:vpc
+            OptionName: ELBScheme
+        - configuration:
+            Value: /health
+            Namespace: aws:elasticbeanstalk:application
+            OptionName: Application Healthcheck URL
+        - configuration:
+            Value: false
+            Namespace: aws:elasticbeanstalk:cloudwatch:logs
+            OptionName: StreamLogs
+        - configuration:
+            Value: AllAtOnce
+            Namespace: aws:elasticbeanstalk:command
+            OptionName: DeploymentPolicy
+        - configuration:
+            Value: 22
+            Namespace: aws:elasticbeanstalk:control
+            OptionName: DefaultSSHPort
+        - configuration:
+            Value: LoadBalanced
+            Namespace: aws:elasticbeanstalk:environment
+            OptionName: EnvironmentType
+        - configuration:
+            Value: application
+            Namespace: aws:elasticbeanstalk:environment
+            OptionName: LoadBalancerType
+        - configuration:
+            Namespace: aws:elasticbeanstalk:environment:process:default
+            Value: 15
+            OptionName: HealthCheckInterval
+        - configuration:
+            Namespace: aws:elasticbeanstalk:environment:process:default
+            Value: /health
+            OptionName: HealthCheckPath
+        - configuration:
+            Value: enhanced
+            Namespace: aws:elasticbeanstalk:healthreporting:system
+            OptionName: SystemType
+        - configuration:
+            Value: true
+            Namespace: aws:elasticbeanstalk:xray
+            OptionName: XRayEnabled
+        - configuration:
+            Namespace: aws:elbv2:listener:default
+            Value: true
+            OptionName: ListenerEnabled
+        - configuration:
+            Namespace: aws:elbv2:listener:443
+            Value: true
+            OptionName: ListenerEnabled
+        - configuration:
+            Namespace: aws:elbv2:listener:80
+            Value: true
+            OptionName: ListenerEnabled
+        - configuration:
+            Namespace: aws:elbv2:listener:443
+            Value: HTTPS
+            OptionName: Protocol
+        - configuration:
+            Namespace: aws:elbv2:listener:80
+            Value: HTTP
+            OptionName: Protocol
